@@ -27,6 +27,12 @@ const removeBlog = ({ id }) => (
     }
 )
 
+const editBlog = (id, updates) => ({
+    type: "EDIT_BLOG",
+    id,
+    updates
+})
+
 
 const blogState = [];
 const blogReducer = (state = blogState, action) => {
@@ -39,6 +45,17 @@ const blogReducer = (state = blogState, action) => {
         case "REMOVE_BLOG":
             return state.filter(({ id }) => {
                 return id !== action.id;
+            })
+        case "EDIT_BLOG":
+            return state.map((blog) => {
+                if(blog.id === action.id) {
+                    return {
+                        ...blog,
+                        ...action.updates
+                    }
+                }else {
+                    return blog;
+                }
             })
         default:
             return state;
@@ -68,6 +85,7 @@ store.subscribe(() => {
 const blog1 = store.dispatch(addBlog({title: 'Blog title 1', description: 'Blog description 1'}));
 const blog2 = store.dispatch(addBlog({title: 'Blog title 2', description: 'Blog description 2', dateAdded: Date.now()}));
 store.dispatch(removeBlog({id: blog1.blog.id}));
+store.dispatch(editBlog(blog2.blog.id, { title: 'updated blog title', description: 'updated description' }))
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( <AppRouter /> );
