@@ -15,10 +15,11 @@ const AppRouter = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<HomePage />} />
-                    <Route path="/blogs" element={<BlogListPage />}>   {/*Parent Route*/}
+                    <Route path="/blogs">   {/*Parent Route*/}
+                        <Route index element={<BlogListPage />} />
                         <Route path=":id" element={<BlogDetailsPage />} />   {/*Child Route*/}
                     </Route>
-                    <Route path="/contact" element={<ContactPage />} />
+                    <Route path="contact" element={<ContactPage />} />
                     <Route path="*" element={<NotFoundPage />} />
                 </Routes>
             </div>
