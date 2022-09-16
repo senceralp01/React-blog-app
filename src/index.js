@@ -10,8 +10,11 @@ const initialState = {
     count: 0
 }
 
-//store
-const store = createStore(( state = initialState, action ) => {
+// REDUCERS
+// Reducer'ı ayrı bir yerde tanımlamamızın sebebi store içerisine farklı reducer'lar göndermek. Örneğin:
+// BLOK reducer
+// LOGIN reducer (auth => username, isLogged)
+const counterReducer = ( state = initialState, action ) => {
     switch (action.type){
         case "INCREMENT":
             const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1;
@@ -29,7 +32,10 @@ const store = createStore(( state = initialState, action ) => {
         default:
             return state
     }        
-});
+}
+
+//store
+const store = createStore(counterReducer);
 
 //get store
 // console.log(store.getState());
@@ -55,7 +61,6 @@ store.dispatch({
 
 // DISPATCH
 
-// REDUCERS
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( <AppRouter /> );
