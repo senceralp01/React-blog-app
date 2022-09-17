@@ -1,3 +1,31 @@
 .active {
     color: red;
 }
+
+.blogList {
+    color: peru;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.link {
+    border: 2px;
+    border-radius: 3px;
+    background-color:goldenrod;
+    padding: 5px;
+    display: inline-block;
+    margin-top: 5px;
+    text-decoration: none;
+    width: 150px;
+    text-align: center;
+    color: black;
+}
+
+.link:hover {
+    background-color:darkgoldenrod;
+    color: white;
+}
+
+.list {
+    list-style: none;
+}

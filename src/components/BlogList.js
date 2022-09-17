@@ -5,7 +5,7 @@ import BlogListItem from './BlogListItem';
 const BlogList = (props) => {
     console.log(props);
     return (
-        <ul>
+        <ul className='list'>
             {props.blogs.map(blog => {
                 return <BlogListItem key={blog.id} {...blog} /> // {...blog} ile destructuring yaprak blog içerisindeki herbir elamanı props olarak tek tek gönderebiliyoruz.
             })}
