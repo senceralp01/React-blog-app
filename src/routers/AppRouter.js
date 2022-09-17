@@ -16,7 +16,7 @@ const AppRouter = () => {
                 <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/blogs">   {/*Parent Route*/}
-                        <Route index element={<BlogListPage />} />
+                        <Route index element={<BlogListPage />} /> {/*Page of Parent Route*/}
                         <Route path=":id" element={<BlogDetailsPage />} />   {/*Child Route*/}
                     </Route>
                     <Route path="contact" element={<ContactPage />} />
