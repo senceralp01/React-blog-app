@@ -21,7 +21,7 @@ export default class BlogForm extends Component {
     return (
       <div>
         <form>
-          <div>
+          <div className='input'>
             <input
               placeholder="Enter title"
               value={this.state.title} 
@@ -36,7 +36,7 @@ export default class BlogForm extends Component {
             ></textarea>
           </div>
           <div>
-            <button>Save Changes</button>
+            <button className='saveButton'>Save Changes</button>
           </div>
         </form>
       </div>
