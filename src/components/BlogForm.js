@@ -4,7 +4,8 @@ import React, { Component } from 'react'
 export default class BlogForm extends Component {
   state = {
     title: '',
-    description: ''
+    description: '',
+    error: ''
   }
 
   onTitleChange = (e) => {
@@ -17,14 +18,33 @@ export default class BlogForm extends Component {
     this.setState(() => ({ description }));
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    if (!this.state.title || !this.state.description) {
+      this.setState({ error: 'Bilgileri tam giriniz...' });
+      setTimeout(() => {
+        this.setState({ error: '' });
+      }, 3000)
+
+    } else {
+      this.setState({ error: '' });
+      this.props.onSubmit({
+        title: this.state.title,
+        description: this.state.description,
+        dateAdded: Date.now()
+      })
+    }
+  }
+
   render() {
     return (
       <div>
-        <form>
+        {this.state.error && <p className='error'>{this.state.error}</p>}
+        <form onSubmit={this.onSubmit}>
           <div className='input'>
             <input
               placeholder="Enter title"
-              value={this.state.title} 
+              value={this.state.title}
               onChange={this.onTitleChange}
             />
           </div>
@@ -36,7 +56,7 @@ export default class BlogForm extends Component {
             ></textarea>
           </div>
           <div>
-            <button className='saveButton'>Save Changes</button>
+            <button type="submit" className='saveButton'>Save Changes</button>
           </div>
         </form>
       </div>

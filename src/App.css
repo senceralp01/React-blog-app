@@ -92,3 +92,11 @@ body {
     background-color: #A77979;
     color: #472D2D;
 }
+
+.error {
+    background-color: #FFE4C0;
+    padding: 10px;
+    border-radius: 25px;
+    color:crimson;
+    font-weight: 550;
+}
