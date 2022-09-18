@@ -1,23 +1,24 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import BlogDetailsItem from './BlogDetailsItem'
 
 
-const BlogDetailsPage = ({ match }) => {
-  console.log(match.params.id)
+const BlogDetailsPage = (props) => {
+  
   return (
     <>
-      <h1>Blog Details Page: {match.params.id}</h1>
-      <Link to="/blogs">Go back</Link>
+      <BlogDetailsItem {...props.blog} />
     </>
   )
 }
 
-const mapStatetoProps = (state) => {
+const mapStatetoProps = (state, props) => {
   return {
     blog: state.blogs.find((blog) => {
-      
+      return blog.id === props.match.params.id
     })
   }
 }
 
-export default BlogDetailsPage
+export default connect(mapStatetoProps)(BlogDetailsPage);
+// Artık blog objesi props parametresi içerisinde var. Yani aradığımız blog bilgilerine bu component içerisinde ulaşabiliriz.
