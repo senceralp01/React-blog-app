@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Header from '../components/Header'
 import HomePage from '../components/HomePage'
 import BlogListPage from '../components/BlogListPage'
@@ -13,15 +13,13 @@ const AppRouter = () => {
         <BrowserRouter>
             <div>
                 <Header />
-                <Routes>
-                    <Route path="/" element={<HomePage />} />
-                    <Route path="/blogs">   {/*Parent Route*/}
-                        <Route index element={<BlogListPage />} /> {/*Page of Parent Route*/}
-                        <Route path=":id" element={<BlogDetailsPage />} />   {/*Child Route*/}
-                    </Route>
-                    <Route path="contact" element={<ContactPage />} />
-                    <Route path="*" element={<NotFoundPage />} />
-                </Routes>
+                <Switch>
+                    <Route path="/" component={HomePage} exact/>
+                    <Route path="/blogs" component={BlogListPage} exact/>
+                    <Route path="/blogs/:id" component={BlogDetailsPage} />
+                    <Route path="/contact" component={ContactPage} />
+                    <Route component={NotFoundPage} />
+                </Switch>
             </div>
         </BrowserRouter>
     </div>

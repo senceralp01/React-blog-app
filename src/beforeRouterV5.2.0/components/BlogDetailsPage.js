@@ -1,12 +1,13 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
-const BlogDetailsPage = ({ match }) => {
-  console.log(match.params.id)
+const BlogDetailsPage = () => {
+  const { id } = useParams();
+  console.log(id)
   return (
     <>
-      <h1>Blog Details Page: {match.params.id}</h1>
+      <h1>Blog Details Page: {id}</h1>
       <Link to="/blogs">Go back</Link>
     </>
   )
