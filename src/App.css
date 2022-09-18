@@ -2,30 +2,68 @@
     color: red;
 }
 
-.blogList {
+.header {
+    color: peru;
+    font-size: xx-large;
+    font-weight: 1000;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; 
+}
+
+.blogList,
+.homePage,
+.contact,
+.add {
     color: peru;
     font-size: larger;
     font-weight: 600;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
 }
 
 .link {
     border: 2px;
     border-radius: 3px;
-    background-color:goldenrod;
+    background-color: #704F4F;
     padding: 5px;
     display: inline-block;
-    margin-top: 5px;
+    margin: 5px;
     text-decoration: none;
-    width: 150px;
+    width: 300px;
     text-align: center;
-    color: black;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
 }
 
 .link:hover {
-    background-color:darkgoldenrod;
-    color: white;
+    background-color: #A77979;
+    color: #472D2D;
+}
+
+.navlink {
+    border: 2px;
+    border-radius: 3px;
+    background-color: #A1C298;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    color: brown;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif 
+}
+
+.navlink:hover {
+    background-color: #C6EBC5;
+    color: darkorange;
 }
 
 .list {
     list-style: none;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
