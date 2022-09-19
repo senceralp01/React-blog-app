@@ -2,10 +2,13 @@ import React, { Component } from 'react'
 
 //Buradaki state sadece bu component'e özeldir. Buradaki bilgileri, ayrı bir redux state içerisinde oluşturduğumuz ve bütün component'lerin kullanabilecek olduğu state bilgilerinden bağımsız olarak çalışacağı için redux state içerisinde tanımlamaya gerek yoktur. 
 export default class BlogForm extends Component {
-  state = {
-    title: '',
-    description: '',
-    error: ''
+  constructor(props){
+    super(props);
+    this.state = {
+      title: props.blog ? props.blog.title : '',
+      description: props.blog ? props.blog.description : '',
+      error: ''
+    }
   }
 
   onTitleChange = (e) => {

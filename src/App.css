@@ -16,7 +16,8 @@ body {
 .blogList,
 .homePage,
 .contact,
-.add {
+.add,
+.edit {
     color: peru;
     font-size: larger;
     font-weight: 600;
@@ -37,9 +38,10 @@ body {
 .navlink:hover {
     background-color: #C6EBC5;
     color: darkorange;
+    font-weight: 600;
 }
 
-.link {
+.detailLink {
     border-radius: 3px;
     background-color: #704F4F;
     padding: 5px;
@@ -51,14 +53,38 @@ body {
     color: white;
 }
 
-.link:hover {
+.detailLink:hover {
     background-color: #A77979;
     color: #472D2D;
     font-weight: 600;
 }
 
+.editLink {
+    border-radius: 3px;
+    background-color: #069A8E;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    color: white;
+}
+
+.editLink:hover {
+    background-color: #A1E3D8;
+    color: #005555;
+    font-weight: 600;
+}
+
 .list {
     list-style: none;
+    padding-left: 0;
+}
+
+.listButtons {
+    display: flex;
+    justify-content: space-between;
 }
 
 .app {

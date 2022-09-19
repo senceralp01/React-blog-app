@@ -9,7 +9,7 @@ const AddBlogPage = (props) => {
         <p className='add'>Add Blog</p>
         <BlogForm onSubmit={(blog) => {
           props.dispatch(addBlog(blog));
-          props.history.push('/blogs'); // props içerisinde route objesi de geliyor. Route objesi içerisinde history adındaki özelliğin push metodu aracılığıyla yönlendirme yapılabilmektedir.
+          props.history.push('/blogs'); // Hatırlanacağı üzere props içerisinde route objesi de geliyor. Route objesi içerisinde, history adındaki özelliğin, push metodu aracılığıyla yönlendirme yapılabilmektedir.
         }} />
     </div>
   )
