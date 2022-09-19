@@ -11,7 +11,7 @@ import './firebase/firebaseConfig'
 const store = configureStore();
 
 store.subscribe(() => {
-    console.log(store.getState()); // sadece store içerisinde bir güncelleme olursa consola yazar.
+    // console.log(store.getState()); // sadece store içerisinde bir güncelleme olursa consola yazar.
 })
 
 const blog1 = store.dispatch(addBlog({title: 'Blog title 1', description: 'Blog description 1'}));

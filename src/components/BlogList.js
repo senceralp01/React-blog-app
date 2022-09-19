@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import BlogListItem from './BlogListItem';
 
 const BlogList = (props) => {
-    console.log(props);
+    // console.log(props);
     return (
         <ul className='list'>
             {props.blogs.map(blog => {
