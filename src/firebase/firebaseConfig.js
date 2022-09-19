@@ -35,6 +35,8 @@ const database = firebase.database();
 // Kayıt sorgulama:
 // once ile firebase'den veri bir kere okunur ve veritabanı ile bağlantı kopar. Alternatifi olan on metodu ile ise veritabanındaki seçtiğimiz ilgili veri'de oluşacak her değişiklikte bilgi okunur.
 // snapshot bilgisi ve val() metodu ile veri okunur.
+// once ya da on'dan sonra bize bir promise döndürülüyor.
+// "value" bir event bilgisidir.
 // database.ref()
 //     .once("value")
 //     .then((snapshot) => {
