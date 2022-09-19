@@ -13,7 +13,7 @@ const EditBlogPage = (props) => {
           props.dispatch(editBlog(props.blog.id, blog));
           props.history.push("/blogs");
         }} />
-      <button onClick={() => {
+      <button className='deleteButton' onClick={() => {
         props.dispatch(removeBlog({id: props.blog.id}));
         props.history.push("/blogs");
       }}>Delete</button>
