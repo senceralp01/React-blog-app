@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { editBlog, removeBlogFromDatabase } from '../actions/blogs'
+import { editBlogsInDatabase, removeBlogFromDatabase } from '../actions/blogs'
 import BlogForm from './BlogForm'
 
 const EditBlogPage = (props) => {
@@ -10,7 +10,7 @@ const EditBlogPage = (props) => {
       <BlogForm 
         blog={props.blog} 
         onSubmit={(blog) => {
-          props.dispatch(editBlog(props.blog.id, blog));
+          props.dispatch(editBlogsInDatabase(props.blog.id, blog));
           props.history.push("/blogs");
         }} />
       <button className='deleteButton' onClick={() => {
