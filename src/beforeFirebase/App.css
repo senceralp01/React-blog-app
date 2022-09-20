@@ -1,0 +1,130 @@
+body {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ; 
+}
+
+.active {
+    color: red;
+}
+
+.header {
+    color: peru;
+    font-size: xx-large;
+    font-weight: 1000;
+    
+}
+
+.blogList,
+.homePage,
+.contact,
+.add,
+.edit {
+    color: peru;
+    font-size: larger;
+    font-weight: 600;
+}
+
+.navlink {
+    border-radius: 3px;
+    background-color: #A1C298;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    color: brown;
+}
+
+.navlink:hover {
+    background-color: #C6EBC5;
+    color: darkorange;
+    font-weight: 600;
+}
+
+.detailLink {
+    border-radius: 3px;
+    background-color: #704F4F;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+
+.detailLink:hover {
+    background-color: #A77979;
+    color: #472D2D;
+    font-weight: 600;
+}
+
+.editLink {
+    border-radius: 3px;
+    background-color: #069A8E;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+    color: white;
+}
+
+.editLink:hover {
+    background-color: #A1E3D8;
+    color: #005555;
+    font-weight: 600;
+}
+
+.list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.listButtons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.details {
+    text-align: start;
+}
+
+.input {
+    margin-bottom: 10px;
+}
+
+.saveButton,
+.deleteButton {
+    background-color: #704F4F;
+    cursor: pointer;
+    margin-top: 10px;
+    height: 40px;
+    width: 120px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-weight: 550;
+}
+
+.saveButton:hover,
+.deleteButton:hover {
+    background-color: #A77979;
+    color: #472D2D;
+}
+
+.error {
+    background-color: #FFE4C0;
+    padding: 10px;
+    border-radius: 25px;
+    color:crimson;
+    font-weight: 550;
+}

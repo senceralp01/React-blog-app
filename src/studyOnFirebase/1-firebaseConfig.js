@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const database = firebase.database();
 
 //ref() ile firebase'deki ana dizini yani root'u seçeriz.
+// ref(" ") tırnaklar içerisine ilgili dizini yazarak alt dizinlerden birisini seçebiliriz.
 // database.ref().set({
 //     title: "blog title 1",
 //     description: "blog description 1",
