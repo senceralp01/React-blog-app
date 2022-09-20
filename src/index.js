@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
 import AppRouter from './routers/AppRouter';
 import './App.css';
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore';
 import { getBlogsFromDatabase } from './actions/blogs';
-import './firebase/firebaseConfig'
+import './firebase/firebaseConfig';
+import Loading from './components/Loading'
 
 const store = configureStore();
 
@@ -17,10 +18,12 @@ const result = (
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<p>Loading...</p>);
+root.render(<Loading />);
 
 store.dispatch(getBlogsFromDatabase()).then(() => {
-    root.render(result);
+    setTimeout(() => {
+        root.render(result);
+    }, 3000);    
 });
 
 
