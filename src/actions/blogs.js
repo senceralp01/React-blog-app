@@ -22,12 +22,18 @@ export const addBlogToDatabase = (blogData = {}) => {
     }
 }
 
-export const removeBlog = ({ id }) => (
-    {
-        type: "REMOVE_BLOG",
-        id: id
+export const removeBlog = (id) => ({
+    type: "REMOVE_BLOG",
+    id: id
+});
+
+export const removeBlogFromDatabase = (id) => {
+    return (dispatch) => {
+        return database.ref(`blogs/${id}`).remove().then(() => { // Neticede EditBlogPage.js'de reducer'a bir object dispatch edilmiş olduğu için return ettik.
+            dispatch(removeBlog(id)); // removeBlog action creater içerisinde, reducer'da ne işlemi ne ile yapacağı bilgilerini içeren bir object generate ediliyor.
+        })
     }
-);
+}
 
 export const editBlog = (id, updates) => ({
     type: "EDIT_BLOG",

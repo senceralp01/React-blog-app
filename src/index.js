@@ -7,7 +7,7 @@ import './App.css';
 import configureStore from './store/configureStore';
 import { getBlogsFromDatabase } from './actions/blogs';
 import './firebase/firebaseConfig';
-import Loading from './components/Loading'
+import Loader from './components/Loader'
 
 const store = configureStore();
 
@@ -18,12 +18,12 @@ const result = (
 );
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Loading />);
+root.render(<Loader />);
 
 store.dispatch(getBlogsFromDatabase()).then(() => {
     setTimeout(() => {
         root.render(result);
-    }, 3000);    
+    }, 2000);
 });
 
 
