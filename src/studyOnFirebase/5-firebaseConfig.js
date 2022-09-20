@@ -17,7 +17,7 @@ firebase.initializeApp(firebaseConfig);
 
 const database = firebase.database();
 
-// FIREBASE'de DİZİLER ile çalışmak:
+// FIREBASE'de DİZİLER ile çalışmak-1 :
 
 //Aşağıdaki yöntemlerle veritabanına dizi eklenebilir. Fakat böyle eklediğimizde veritabanı dizi elamanlarına kendisi ID atayarak sıfırdan başlayarak kendi sıralıyor.
 // const blogs = [
@@ -108,19 +108,19 @@ database.ref("blogs/-NCPGCMAgg3XwmaSuTGh").set({
 })
 
 // Olmayan bir node üzerinde konumlanarak yeni bir object tanımlaması yapabiliriz ve o node oluşur:
-database.ref("product").push({
+database.ref("products").push({
     name: "Samsung S5",
     price: 3000,
     isApproved: false
 })
 
-database.ref("product").push({
+database.ref("products").push({
     name: "Samsung S7",
     price: 4000,
     isApproved: true
 })
 
-database.ref("product").push({
+database.ref("products").push({
     name: "Samsung S8",
     price: 5000,
     isApproved: true
