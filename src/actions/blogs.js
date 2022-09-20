@@ -33,7 +33,7 @@ export const removeBlogFromDatabase = (id) => {
             dispatch(removeBlog(id)); // removeBlog action creater içerisinde, reducer'da ne işlemi ne ile yapacağı bilgilerini içeren bir object generate ediliyor.
         })
     }
-}
+};
 
 export const editBlog = (id, updates) => ({
     type: "EDIT_BLOG",
@@ -61,6 +61,6 @@ export const  getBlogsFromDatabase = () => {
             dispatch(setBlogs(blogs)); // Veritabanından gelen bilgileri alıp setBlogs action creater'a dispatch ederek Redux içeriğine ekliyoruz.
         })
     }
-}
+};
 
 // Normalde biz dispatch'i object üzerinden yapıyprduk. Ancak artık eklemiş olduğumuz Redux Thunk kütüphanesi-Middleware aracılığıyla bu işlemi fonksiyon üzerinden asenkron bir sorgu ile gerçekleştiriyoruz.
