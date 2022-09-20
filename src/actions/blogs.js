@@ -15,7 +15,7 @@ export const addBlogToDatabase = (blogData = {}) => {
 
         database.ref("blogs").push(blog).then((response) => {
             dispatch(addBlog({
-                id: response.key, // elimizdeki dataya firebase'de üretilen id'yi ekliyoruz.
+                id: response.key, // elimizdeki dataya firebase'de üretilen id'yi ekliyoruz. Sonra addBlog ile Redux içerisine aktarıyoruz.
                 ...blog
             }));
         });
@@ -34,3 +34,27 @@ export const editBlog = (id, updates) => ({
     id,
     updates
 });
+
+export const setBlogs = (blogs) => ({
+    type: "SET_BLOGS",
+    blogs
+});
+
+export const  getBlogsFromDatabase = () => {
+    return (dispatch) => {
+        return database.ref("blogs").once("value").then((snapshot) => {
+            const blogs = [];
+
+            snapshot.forEach((blog) => {
+                blogs.push({
+                    id: blog.key,
+                    ...blog.val()
+                });
+            });
+
+            dispatch(setBlogs(blogs)); // Veritabanından gelen bilgileri alıp setBlogs action creater'a dispatch ederek Redux içeriğine ekliyoruz.
+        })
+    }
+}
+
+// Normalde biz dispatch'i object üzerinden yapıyprduk. Ancak artık eklemiş olduğumuz Redux Thunk kütüphanesi-Middleware aracılığıyla bu işlemi fonksiyon üzerinden asenkron bir sorgu ile gerçekleştiriyoruz.
