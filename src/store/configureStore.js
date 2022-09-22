@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'; // Redux ile asenkron sorguların kullanılabil
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Tek bir store içerisine farklı reducer bilgilerini aktararak farklı state'ler oluşturuyoruz.
+// Buradaki blogs: ve auth: olarak tanımladığımız değerler state'in elamanları oluyorlar ve stat.blog state.auth olarak erişilebilirler.
 export default () => {
     const store = createStore(
         combineReducers({

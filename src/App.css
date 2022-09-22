@@ -13,10 +13,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 480px;
 }
 
-.blogList,
 .homePage,
+.blogList,
 .contact,
 .add,
 .edit {

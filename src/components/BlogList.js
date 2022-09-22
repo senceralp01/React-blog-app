@@ -32,3 +32,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps)(BlogList); // Higher Order Component (HOC) Pattern
 
 // Özetle burada BlogList component'in görevi state içerisinde react-redux'a bağlantı kurmak. Dolayısıyla connect metoduna burada ihtiyacımız var. Connect metoduna da bir parametre göndermemiz gerekiyor(mapStateToProps). Bu parametrenin görevi de kendisine gelen state bilgisinin içerisinde bulunan blog bilgisini, ilgili componentin, yani BlogList componentin props parametresi içerisine bu bog bilgisini aktarmak.
+
+// Yani adamlar demişler ki: "Sen mapStateToProps ya da başka bir isimde bir fonksiyon yaz (ama jargon isminden şaşma) ve bunu connnect'in iki parantezinden ilkinin içine koy. Böyle yaparsan biz state bilgisini o fonksiyona parametre olarak gönderiyoruz. İlgili componenti de connect'in ikinci parantezine koy ki bu component'i de redux ile connect edebilesin."
