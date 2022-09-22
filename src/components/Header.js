@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { login, logout } from "../actions/auth";
+import { logout } from "../actions/auth";
 
 
 const Header = () => {
@@ -8,7 +8,6 @@ const Header = () => {
     <header>
       <div className='header'>
         <p>Blog App</p>
-        <button onClick={login} className="loginButton">Login</button>
         <button onClick={logout} className="logoutButton">Logout</button>
       </div>
       <nav>

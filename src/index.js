@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import reportWebVitals from './reportWebVitals';
-import AppRouter from './routers/AppRouter';
+import AppRouter, {history} from './routers/AppRouter';
 import './App.css';
 import configureStore from './store/configureStore';
 import { getBlogsFromDatabase } from './actions/blogs';
@@ -21,23 +21,29 @@ const result = (
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<Loader />);
 
-store.dispatch(getBlogsFromDatabase()).then(() => {
-    setTimeout(() => {
+let isRendered = false;
+const renderApp = () => {
+    if(!isRendered) {
         root.render(result);
-    }, 1000);
-});
-
+        isRendered = true;
+    };
+};
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
         console.log("Kullanıcı giriş yapmıştır.");
-        console.log(user);
-        document.querySelector(".loginButton").style.display = "none";
+        store.dispatch(getBlogsFromDatabase()).then(() => {
+            renderApp();
+            if(history.location.pathname === '/') {
+                history.push("/blogs");
+            }
+        });
         document.querySelector(".logoutButton").style.display = "inline-block";
     }else {
         console.log("Kullanıcı çıkış yapmıştır.");
-        document.querySelector(".loginButton").style.display = "inline-block";
+        renderApp();
         document.querySelector(".logoutButton").style.display = "none";
+        history.push("/");
     }
 });
 
