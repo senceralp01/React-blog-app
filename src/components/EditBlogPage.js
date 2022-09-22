@@ -10,7 +10,7 @@ const EditBlogPage = (props) => {
       <BlogForm 
         blog={props.blog} 
         onSubmit={(blog) => {
-          props.dispatch(editBlogsInDatabase(props.blog.id, blog));
+          props.dispatch(editBlogsInDatabase(props.blog.id, blog)); //Burada editBlogsInDatabase'dan dönen object bilgisi ilgili reducer'a dispatch edilir.
           props.history.push("/blogs");
         }} />
       <button className='deleteButton' onClick={() => {
