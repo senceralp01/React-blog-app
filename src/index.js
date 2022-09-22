@@ -24,17 +24,23 @@ root.render(<Loader />);
 store.dispatch(getBlogsFromDatabase()).then(() => {
     setTimeout(() => {
         root.render(result);
-    }, 2000);
+    }, 1000);
 });
+
 
 firebase.auth().onAuthStateChanged((user) => {
     if(user) {
-        console.log("Kullanıcı giriş yamıştır.");
+        console.log("Kullanıcı giriş yapmıştır.");
         console.log(user);
+        document.querySelector(".loginButton").style.display = "none";
+        document.querySelector(".logoutButton").style.display = "inline-block";
     }else {
         console.log("Kullanıcı çıkış yapmıştır.");
+        document.querySelector(".loginButton").style.display = "inline-block";
+        document.querySelector(".logoutButton").style.display = "none";
     }
 });
+
 
 
 reportWebVitals();

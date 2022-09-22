@@ -1,9 +1,14 @@
 import React from "react";
-import { login } from "../actions/auth";
+import { login, logout } from "../actions/auth";
 
 export const LoginPage = () => (
     <div>
-        <button onClick={login}>Login</button>
+        <div>
+            <button onClick={login} className="loginButton">Login</button>
+        </div>
+        <div>
+            <button onClick={logout} className="logoutButton">Logout</button>
+        </div>
     </div>
 )
 
