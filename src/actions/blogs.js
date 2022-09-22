@@ -11,9 +11,10 @@ export const addBlog = (blog) => ({
 
 // Normalde biz dispatch'i object üzerinden yapıyorduk. Ancak aşağıda durum farklı. configureStore.js içerisinde eklemiş olduğumuz Redux Thunk kütüphanesi-Middleware aracılığıyla bu işlemi fonksiyon üzerinden asenkron bir sorgu ile gerçekleştiriyoruz.
 export const addBlogToDatabase = (blogData = {}) => {
-    return (dispatch) => {
-        const { title='', description='', dateAdded=0 } = blogData; // (default değerlerler set edilerek alındı)
-        const blog = { title, description, dateAdded};
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
+        const { title = '', description = '', dateAdded = 0 } = blogData; // (default değerlerler set edilerek alındı)
+        const blog = { title, description, dateAdded, uid };
 
         database.ref("blogs").push(blog).then((response) => {
             dispatch(addBlog({
@@ -62,16 +63,21 @@ export const setBlogs = (blogs) => ({
 });
 
 // Normalde biz dispatch'i object üzerinden yapıyorduk. Ancak aşağıda durum farklı. configureStore.js içerisinde eklemiş olduğumuz Redux Thunk kütüphanesi-Middleware aracılığıyla bu işlemi fonksiyon üzerinden asenkron bir sorgu ile gerçekleştiriyoruz.
-export const  getBlogsFromDatabase = () => {
-    return (dispatch) => {
+export const getBlogsFromDatabase = () => {
+    return (dispatch, getState) => {
+        const uid = getState().auth.uid;
         return database.ref("blogs").once("value").then((snapshot) => {
             const blogs = [];
 
             snapshot.forEach((blog) => {
-                blogs.push({
-                    id: blog.key,
-                    ...blog.val()
-                });
+                const result = blog.val(); // val(): firebase'deki ilgili object'in val değeri
+
+                if (result.uid == uid) {
+                    blogs.push({
+                        id: blog.key, // key: firebase'ki ilgili object'in key değeri
+                        ...result
+                    });
+                }
             });
 
             dispatch(setBlogs(blogs)); // Veritabanından gelen bilgileri alıp setBlogs action creater'a dispatch ederek Redux içeriğine ekliyoruz.
