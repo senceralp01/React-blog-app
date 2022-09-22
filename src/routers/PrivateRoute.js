@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux'; // redux içerisindeki user id bilgisini alabilmek için connect ile redux'a bağlanacağız.
 import { Redirect, Route } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Header from '../components/Header';
 
 // isAuthenticated bilgisinden gelen değer eğer true ise yani kullanıcı girişi yapılmış ise bu durumda göndermek istediğimiz componente yönlendireceğiz, false gelirse ana sayfaya redirect ederek yönlendireceğiz. Yani kullanıcılara özel Route'lar tanımlamış oluyoruz. Dolayısıyla buradaki Route bilgileri dinamik olarak oluşturulmuştur. Bu bilgiler props parametresi içinde gelen AppRouter.js'deki <PrivateRoute ...>'lardan gelen parametrelerdir. Props içerisine isAuthenticated'i de set ettiğimizi hatırlayalım.
 const PrivateRoute = ({ isAuthenticated, component: Component, ...rest }) => (
     <Route {...rest} component={(props) => (
         isAuthenticated ? (
             <div>
-                <Navbar />
+                <Header />
                 <Component {...props} />
             </div>
         ) : (

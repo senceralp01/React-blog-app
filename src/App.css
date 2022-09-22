@@ -7,13 +7,21 @@ body {
 }
 
 .header {
-    color: peru;
-    font-size: xx-large;
-    font-weight: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.brand {
+    color: peru;
+    font-size: 60px;
+    font-weight: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 480px;
+    margin-top: 30px;
+    margin-bottom: 70px;
 }
 
 .homePage,
@@ -72,7 +80,6 @@ nav {
 }
 
 .editLink,
-.loginButton,
 .logoutButton {
     border-radius: 3px;
     background-color: #069A8E;
@@ -88,6 +95,22 @@ nav {
     cursor: pointer;
 }
 
+.loginButton {
+    border-radius: 3px;
+    background-color: #069A8E;
+    padding: 5px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    width: 180px;
+    height: 50px;
+    text-align: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: larger;
+}
+
 .editLink:hover,
 .loginButton:hover {
     background-color: #A1E3D8;
@@ -96,8 +119,8 @@ nav {
 }
 
 .logoutButton {
-    display: none;
     background-color: brown;
+    width: 60px;
 }
 
 .logoutButton:hover {

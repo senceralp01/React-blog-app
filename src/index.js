@@ -41,14 +41,10 @@ firebase.auth().onAuthStateChanged((user) => {
                 history.push("/blogs");
             }
         });
-        document.querySelector(".loginButton").style.display = "none";
-        document.querySelector(".logoutButton").style.display = "inline-block";
     }else {
         store.dispatch(logoutAction());
         store.dispatch(clearBlogs());
         renderApp();
-        document.querySelector(".logoutButton").style.display = "none";
-        document.querySelector(".loginButton").style.display = "inline-block";
         history.push("/");
     }
 });
